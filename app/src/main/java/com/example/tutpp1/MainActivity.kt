@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.tutpp1.databinding.ActivityMainBinding
 
@@ -29,9 +30,13 @@ class MainActivity : AppCompatActivity() {
         viewModelFactory=MainActivityViewModelFactory(123)
         viewModel=ViewModelProvider(this,viewModelFactory)[MainActivityViewModel::class.java]
 
+        viewModel.totalData.observe(this, Observer {
+            binding.textView.text=it.toString()
+        })
+
         binding.btnAdd.setOnClickListener{
             viewModel.setTotal(binding.editTextNumber.text.toString().toInt())
-            binding.textView.text=viewModel.getTotal().toString()
+//            binding.textView.text=viewModel.getTotal().toString()
 
         }
 
