@@ -24,5 +24,10 @@ class MainActivityViewModel(startingTotal:Int):ViewModel() {
         total.value=(total.value)?.plus(input)
     }
 
+    fun setTotalData()
+    {
+        total.value?.let { setTotal(it) }
+    }
+
 
 }

@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
         viewModelFactory=MainActivityViewModelFactory(123)
         viewModel=ViewModelProvider(this,viewModelFactory)[MainActivityViewModel::class.java]
-
+        binding.myViewModel=viewModel
         viewModel.totalData.observe(this, Observer {
             binding.textView.text=it.toString()
         })

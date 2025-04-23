@@ -2,7 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="MyViewModel"
+            type="com.example.tutpp1.MainActivityViewModel"
 
+            />
+
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/main"
@@ -16,6 +23,7 @@
             android:layout_height="40dp"
             android:ems="10"
             android:inputType="number"
+            android:onClick="@{()->MyViewModel.setTotalData()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.588"
